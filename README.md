@@ -41,6 +41,7 @@ Entry-level security professional building hands-on offensive and defensive expe
 
 | Lab | Platform | Summary |
 |---|---|---|
+| [Splunk 3 - BOTSv3](labs/2026-05-21-tryhackme-splunk-3/README.md) | TryHackMe | Hybrid-environment BOTSv3 investigation across AWS and endpoint telemetry: IAM enumeration and a public S3 bucket in CloudTrail, a leaked access key found in a public GitHub repo, browser-based Monero mining traced through performance counters, and a Taedonggang APT endpoint chain with a macro dropper, fake service account, and Base64 PowerShell C2. |
 | [Splunk 2 - BOTSv2](labs/2026-05-12-tryhackme-splunk-2/README.md) | TryHackMe | Four-scenario BOTSv2 investigation as Alice Bluebird: insider-threat email exfil, web vulnerability scanner plus SQLi (UPDATEXML) and XSS, USB-delivered FruitFly/Quimitchin Perl malware with dynamic-DNS C2, and a Taedonggang APT chain with scheduled-task PowerShell Empire reading C2 config from a registry key. |
 | [ItsyBitsy](labs/2026-05-10-tryhackme-itsybitsy/README.md) | TryHackMe | Hunted a bitsadmin user-agent in Kibana connection_logs and traced a HEAD request to pastebin.com/yTg0Ah6a, mapping the activity to MITRE ATT&CK T1197 (BITS Jobs) and T1105 (Ingress Tool Transfer). |
 | [Introduction to SIEM](labs/2026-04-14-tryhackme-intro-to-siem/README.md) | TryHackMe | Triaged a cryptominer alert (cudominer.exe on HR_02), traced to a 4688 rule on *miner*, actioned as true positive. |
@@ -75,6 +76,7 @@ Entry-level security professional building hands-on offensive and defensive expe
 | Basic Pentesting 1 | WordPress exploitation, pkexec CVE-2021-4034 compilation and exploitation |
 | Metasploitable 2 (×2) | UnrealIRCd manual RCE, vsftpd/Samba/Distcc vectors, SUID nmap privesc |
 | DVWA labs (×3) | Full OWASP Top 10: SQLi (UNION/blind), XSS, CSRF, LFI, command injection, IDOR, API/session flaws |
+| Splunk 3 - BOTSv3 | Cloud and endpoint SIEM investigation, AWS CloudTrail analysis (IAM enumeration, PutBucketAcl / S3 public-access detection, access-key misuse), o365 audit logs, perfmon-based cryptomining detection, Symantec endpoint signatures, Sysmon process analysis, user-agent attribution, time-windowed osquery pivots, Base64 PowerShell C2 decoding |
 | Splunk 2 - BOTSv2 | Multi-source SIEM pivoting (pan:traffic, stream:http/smtp/dns/ftp/tcp, osquery, Sysmon, WinRegistry), SPL chaining (stats / sort / dedup / table), Base64 / recursive-encoding decode with CyberChef, time-windowed DNS pivots for C2 discovery, VirusTotal metadata attribution, SSL issuer fingerprinting, scheduled-task PowerShell Empire detection, registry-stored C2 URL decoding |
 | ItsyBitsy | Kibana / ELK Discover, anomalous user-agent hunting (bitsadmin), LOLBin and trusted-service abuse detection, MITRE ATT&CK T1197 / T1105 / T1071.001 mapping, Zeek uid pivot methodology |
 | Intro to SIEM | Detection rule design, EventID 4688 analysis, alert triage (true vs false positive) |
