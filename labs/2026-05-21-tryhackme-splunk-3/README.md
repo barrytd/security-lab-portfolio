@@ -135,7 +135,7 @@ index="botsv3" sourcetype="perfmonmk:process" "%_Processor_Time"=100
 | reverse
 ```
 
-<img src="10-coinmining-second-process-chome#5.png" width="800">
+<img src="10-coinmining-second-process-chrome-5.png" width="800">
 
 The first process to hit 100 percent was a browser content process in the morning; the second was a Chrome instance in the early afternoon. Browser processes mining crypto points at **browser-based mining** (a malicious site or extension running a miner in JavaScript).
 
