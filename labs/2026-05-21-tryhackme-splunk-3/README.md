@@ -189,7 +189,7 @@ index="botsv3" sourcetype="aws:cloudtrail" *error* iam
 | sort -distinct_errors
 ```
 
-<img src="15-IAM-most-distinct errors.png" width="800">
+<img src="15-IAM-most-distinct-errors.png" width="800">
 
 ### The AWS Abuse Notification
 

@@ -91,7 +91,7 @@ The attackers cloned **NinjaJc01/ssh-backdoor**, a Go-based SSH server that acce
 
 Running John against fasttrack.txt cracked four of the five in under a second.
 
-<img src="06-hashes cracked.png" width="800">
+<img src="06-hashes-cracked.png" width="800">
 
 ```
 john hashes.txt --wordlist=/usr/share/wordlists/fasttrack.txt

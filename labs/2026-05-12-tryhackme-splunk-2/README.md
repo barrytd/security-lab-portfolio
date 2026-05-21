@@ -66,7 +66,7 @@ index="botsv2" 10.0.2.101 sourcetype="stream:HTTP"
 
 The competitor's site appears in the list.
 
-<img src="02-competitor website.png" width="800">
+<img src="02-competitor-website.png" width="800">
 
 ### Phase 1.3: Pages Visited on the Competitor Site
 
@@ -85,7 +85,7 @@ The URIs include an executive contact image, which leads to the next pivot point
 
 <img src="05-ceo-name-and-email.png" width="800">
 
-<img src="06-other-employee email.png" width="800">
+<img src="06-other-employee-email.png" width="800">
 
 ### Phase 1.4: Email Exfiltration
 
