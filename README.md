@@ -10,6 +10,7 @@ Entry-level security professional building hands-on offensive and defensive expe
 
 | Lab | Platform | Summary |
 |---|---|---|
+| [Guided Pentest: Infrastructure](labs/2026-05-22-tryhackme-guided-pentest-infrastructure/README.md) | TryHackMe | Full kill chain in one short room: nmap fingerprinted UnrealIRCd 3.2.8.1 on port 6667, searchsploit pointed at the CVE-2010-2075 backdoor, the Metasploit module landed a reverse shell, /etc/password.txt held the root password in plaintext, and SSH as root retrieved the flag. |
 | [Guided Pentest: Web (RecruitX)](labs/2026-05-21-tryhackme-guided-pentest-web/README.md) | TryHackMe | Web app pentest against a fictional recruitment platform. Chained an IDOR on profile and API, a password-reset flow that returned the token in the response, and a file-upload extension blocklist that missed .phtml into a www-data reverse shell. |
 | [Skynet](labs/2026-05-10-tryhackme-skynet/README.md) | TryHackMe | enum4linux to a valid user, anonymous SMB share leaking a custom wordlist, Hydra against SquirrelMail, SMB credentials disclosed by email, Cuppa CMS unauth RFI to www-data shell, tar wildcard injection in a root cron for root. |
 | [Brooklyn Nine Nine](labs/2026-05-05-tryhackme-brooklyn-nine-nine/README.md) | TryHackMe | Two complete attack chains to the same root: anonymous FTP plus rockyou Hydra to jake plus sudo less escape, and steghide on a web image to holt plus sudo nano NOPASSWD escape. |
@@ -56,6 +57,7 @@ Entry-level security professional building hands-on offensive and defensive expe
 
 | Lab | Skills Demonstrated |
 |---|---|
+| Guided Pentest: Infrastructure | Full kill chain methodology (recon, exploit, post-exploit, privesc), Nmap service version detection, searchsploit version-to-CVE lookup, CVE-2010-2075 UnrealIRCd 3.2.8.1 backdoor (Metasploit + manual context), credential-at-rest discovery (/etc/password.txt), root SSH login as privesc, supply chain attack awareness |
 | Guided Pentest: Web (RecruitX) | Web app pentest methodology, Nmap and Gobuster recon, IDOR (CWE-639) on profile and API endpoints, unauthenticated API enumeration, broken password reset (CWE-640 token-in-response), file upload extension blocklist bypass via .phtml (CWE-434), client-side accept-attribute bypass with DevTools, PHP web shell to netcat reverse shell, vulnerability chaining mindset |
 | Skynet | enum4linux SID-to-username resolution, anonymous SMB enumeration, Hydra http-post-form against SquirrelMail, webmail-to-SMB credential pivot, Cuppa CMS RFI (Exploit-DB 25971), PHP reverse shell over RFI, tar wildcard injection (--checkpoint-action) via root cron |
 | Brooklyn Nine Nine | Anonymous FTP enumeration, Hydra SSH brute force (rockyou), steghide extraction with weak passphrase, sudo shell escapes (less !sh and nano Execute Command), GTFOBins methodology, NOPASSWD audit |
