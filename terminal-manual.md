@@ -287,6 +287,47 @@ sudo nmap --reason TARGET_IP     # show why nmap decided each port state (e.g. s
 `--reason` is the one to remember for learning: it shows the evidence, like `syn-ack`
 for an open port, instead of just the conclusion.
 
+## nmap: service depth and OS detection
+
+```bash
+nmap -sV --version-light TARGET_IP  # fewer version probes, faster, less certain
+nmap -sV --version-all TARGET_IP    # every probe, slower, more thorough
+nmap -O TARGET_IP                   # fingerprint the operating system
+nmap --traceroute TARGET_IP         # map the hops to the target
+```
+
+`-sV` gives the version banner, which is what you match against known vulnerabilities,
+and `--version-all` digs harder when the basic probe is unsure. When nmap cannot name
+the OS exactly it prints the raw fingerprint, and the TTL still hints at it: 64 leans
+Linux, 128 leans Windows.
+
+## nmap: scripting engine (NSE)
+
+NSE scripts live in `/usr/share/nmap/scripts` and extend nmap well past port scanning.
+
+```bash
+nmap -sC TARGET_IP                        # run the default safe scripts
+nmap --script=http-robots.txt TARGET_IP   # run a specific script
+nmap --script-help SCRIPTNAME             # read what a script does before running it
+```
+
+`--script-help` shows the description and category (safe, intrusive, vuln) so you know
+what a script touches before you run it. Vuln scripts follow the `http-vuln-cveYYYY-NNNN`
+pattern, named after the CVE.
+
+## nmap: the -A shortcut and saving output
+
+```bash
+nmap -A TARGET_IP            # -sV, -O, -sC, and --traceroute in one command
+nmap -oN out.txt TARGET_IP   # normal output to a file
+nmap -oG out.gnmap TARGET_IP # greppable output
+nmap -oX out.xml TARGET_IP   # XML output, parseable by other tools
+nmap -oA out TARGET_IP       # all three formats at once
+```
+
+`-A` bundles the full workup when you want everything, and `-oA` saves it in every format
+so you have a record to work from.
+
 ## Web content: directory brute force
 
 Finds pages and folders that are not linked anywhere, like admin panels and login pages.
@@ -302,6 +343,63 @@ If the app is WordPress:
 ```bash
 wpscan --url http://TARGET_IP --enumerate u    # enumerate WordPress users
 ```
+
+## Manual content discovery
+
+Before brute forcing, check the files a server exposes by convention. These are free
+and often point straight at the interesting paths.
+
+```bash
+curl http://TARGET_IP/robots.txt    # disallowed paths, a ready-made list of interesting spots
+curl http://TARGET_IP/sitemap.xml   # pages the owner wants indexed, sometimes staging or old ones
+curl http://TARGET_IP -v            # response headers: Server and X-Powered-By leak the stack
+```
+
+Identify the framework from the headers or page source, then read its public docs. They
+often name the admin path and default credentials.
+
+## Web server fingerprinting: nikto
+
+Nikto does an automated first pass on a web server: it reads headers, reports the Server
+banner and allowed methods, and flags common misconfigurations in about ten seconds.
+
+```bash
+nikto -h http://TARGET_IP        # scan a web server
+nikto -h http://TARGET_IP:8080   # non-default port
+```
+
+The Server banner is the payoff. An exact version like `Apache/2.4.49` maps straight to a
+known CVE. Nikto flags where to look, it does not exploit, and it is loud, so only run it
+against authorized targets.
+
+## Web content: subdomains and vhosts
+
+Gobuster does more than directories. Subdomains resolve through DNS, vhosts are resolved
+by the web server using the Host header, so they need different modes.
+
+```bash
+gobuster dns -d example.thm -w WORDLIST                 # brute force subdomains via DNS
+gobuster vhost -u http://TARGET_IP --domain example.thm \
+  -w WORDLIST --append-domain --exclude-length 250-320  # brute force virtual hosts
+```
+
+`--exclude-length` filters out the common response size so real hits stand out. Subdomains
+matter because a bug patched on the main site may still be live on a forgotten one.
+
+## Web servers: headers and misconfigurations
+
+Fingerprint the server from its headers, then check for the misconfigurations that
+permissive defaults leave switched on.
+
+```bash
+curl -sI http://TARGET:PORT                     # response headers: Server and X-Powered-By name the stack
+curl -sI http://TARGET/ | grep -iE "x-frame|x-content-type|content-security|referrer"  # are the security headers set?
+gobuster dir -u http://TARGET -w WORDLIST -x bak,txt   # find backup files (.bak) and unlinked text files
+nikto -h http://TARGET:PORT                     # automated sweep: version, status pages, indexing, missing headers
+```
+
+Nikto flags where to look in about ten seconds, it does not exploit. Check `/server-status`
+on Apache and `/nginx_status` on Nginx by hand too, since a stray config line can expose them.
 
 ## SMB: Windows file shares
 

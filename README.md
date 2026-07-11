@@ -53,6 +53,19 @@ Entry-level security professional building hands-on offensive and defensive expe
 
 ---
 
+## 📘 Fundamentals & Reference
+
+Shorter, concept-first writeups from the easier TryHackMe fundamentals rooms, grouped by date, alongside a command reference that spans every lab.
+
+| Batch | Covers |
+|---|---|
+| [2026-07-11 TryHackMe Fundamentals](labs/2026-07-11-tryhackme-fundamentals/README.md) | Nmap post-scan detail (service/OS detection, NSE), walking an application with browser dev tools, content discovery (manual/OSINT/Gobuster), modern web stacks and their CVEs, and web server misconfigurations across Apache/Nginx/Node/Python. |
+| [2026-07-04 TryHackMe Fundamentals](labs/2026-07-04-tryhackme-fundamentals/README.md) | Reconnaissance fundamentals, nmap basic and advanced port scans, and cleartext protocols (Protocols and Servers 1 and 2). |
+
+The [Terminal Manual](terminal-manual.md) is a tiered command reference (Linux basics, networking and recon, scanning and enumeration, passwords and exploitation) that grew out of these rooms and spans the whole repo. It is also published as the interactive [Manual page](https://barrytd.github.io/manual/) on the blog.
+
+---
+
 ## Lab → Skills Matrix
 
 | Lab | Skills Demonstrated |

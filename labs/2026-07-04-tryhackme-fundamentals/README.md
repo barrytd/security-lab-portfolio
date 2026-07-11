@@ -1,10 +1,9 @@
-# 2026-07-04 - TryHackMe Fundamentals and Terminal Reference
+# 2026-07-04 - TryHackMe Fundamentals
 
 A batch of shorter, concept-first writeups from working through the easier TryHackMe
-fundamentals rooms in one sitting, plus a command reference built from the same material.
-These are lighter than the full boot-to-root labs elsewhere in this repo: they focus on
-the methodology and the *why* rather than a single box's kill chain. Grouped here so the
-easy-content catch-up lives in one place.
+fundamentals rooms in one sitting. These are lighter than the full boot-to-root labs
+elsewhere in this repo: they focus on the methodology and the *why* rather than a single
+box's kill chain. Grouped here so the easy-content catch-up lives in one place.
 
 ## Contents
 
@@ -13,12 +12,14 @@ easy-content catch-up lives in one place.
 - [nmap-advanced-port-scans.md](nmap-advanced-port-scans.md) *(Medium)* - Odd-flag stealth scans (null, FIN, xmas) against stateless vs stateful firewalls, the ACK scan for mapping what a firewall allows, and source-hiding with spoofing, decoys, and the idle scan.
 - [cleartext-protocols.md](cleartext-protocols.md) *(Easy)* - Protocols and Servers: reading FTP, SMTP, POP3, and IMAP by hand with telnet/netcat, and why cleartext authentication is already-compromised authentication.
 - [protocols-and-servers-2.md](protocols-and-servers-2.md) *(Medium)* - Protocols and Servers 2: sniffing, man-in-the-middle, and password attacks against cleartext services, mapped to CIA/DAD with the defenses that shut each one down.
-- [terminal-manual.md](terminal-manual.md) - A tiered command reference (Linux basics, networking/recon, scanning/enumeration, passwords/exploitation). Also published as the interactive Manual page on the blog.
 
 ## Where these are published
 
 The five room writeups are published in beginner-friendly form on the blog at
-<https://barrytd.github.io/> under **Labs**, and the terminal manual as the interactive
-**/manual/** page.
+<https://barrytd.github.io/> under **Labs**.
+
+The tiered command reference that grew out of these rooms now lives at the repo root as
+[`terminal-manual.md`](../../terminal-manual.md), since it spans every lab rather than
+this one batch. It is also published as the interactive **/manual/** page on the blog.
 
 No flags, cracked values, or room answers, per the repo house style. Methodology only.
