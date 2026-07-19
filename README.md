@@ -59,6 +59,7 @@ Shorter, concept-first writeups from the easier TryHackMe fundamentals rooms, gr
 
 | Batch | Covers |
 |---|---|
+| [2026-07-18 TryHackMe Fundamentals](labs/2026-07-18-tryhackme-fundamentals/README.md) | Attacking IIS end to end (version fingerprinting, 8.3 tilde short-name enumeration, WebDAV credential leak, ASPX web shell upload over NTLM, SeImpersonatePrivilege context, and the IIS misconfiguration checklist), plus Burp Suite basics (proxy setup, site map, scope, and a reflected XSS landed by editing the live request past a client-side filter). |
 | [2026-07-11 TryHackMe Fundamentals](labs/2026-07-11-tryhackme-fundamentals/README.md) | Nmap post-scan detail (service/OS detection, NSE), walking an application with browser dev tools, content discovery (manual/OSINT/Gobuster), modern web stacks and their CVEs, and web server misconfigurations across Apache/Nginx/Node/Python. |
 | [2026-07-04 TryHackMe Fundamentals](labs/2026-07-04-tryhackme-fundamentals/README.md) | Reconnaissance fundamentals, nmap basic and advanced port scans, and cleartext protocols (Protocols and Servers 1 and 2). |
 
