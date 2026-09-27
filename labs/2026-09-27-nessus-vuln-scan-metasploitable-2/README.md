@@ -45,7 +45,7 @@ Result: Linux kernel 2.6, Ubuntu 8.04. That dates the box to around 2008.
 
 In Nessus I made a Basic Network Scan, target `192.168.56.103`, non-credentialed, common ports. This is a basic discovery scan, the default outside-in view.
 
-Non-credentialed means Nessus scanned from the outside with no login to the target. That is the attacker's view. A credentialed scan gives Nessus a login so it can read patch levels and config from the inside, which finds more and gives fewer false positives. That is my planned follow-up.
+Non-credentialed means Nessus scanned from the outside with no login to the target. That is the attacker's view. A credentialed scan gives Nessus a login so it can read patch levels and config from the inside, which finds more and gives fewer false positives. I run that credentialed scan later in this writeup.
 
 The scan ran about 11 minutes and returned 61 findings: 4 critical, 3 high, plus mediums and lows.
 

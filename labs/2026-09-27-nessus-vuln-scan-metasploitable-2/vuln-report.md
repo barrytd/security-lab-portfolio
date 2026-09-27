@@ -2,7 +2,7 @@
 
 **Target:** 192.168.56.103 (Metasploitable 2)
 **Scanner:** Nessus Essentials
-**Scan type:** Non-credentialed network scan, common ports
+**Scan type:** Non-credentialed network scan, common ports (credentialed follow-up below)
 **Date:** 2026-09-27
 **Analyst:** Robert Perez
 **Environment:** Isolated VirtualBox host-only lab network
@@ -19,7 +19,7 @@ This host runs an operating system that stopped getting security updates in 2013
 
 - One host, 192.168.56.103, on an isolated lab network.
 - Non-credentialed scan. That means Nessus looked from the outside with no login to the target, so this is the attacker's view, not the full internal view.
-- A credentialed scan is planned next for a fuller picture.
+- A credentialed scan follow-up is included at the end for a fuller inside view.
 
 ## Findings by severity
 
